@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS dev;
+USE dev;
+CREATE TABLE IF NOT EXISTS emails (
+    id MEDIUMINT NOT NULL AUTO_INCREMENT,
+    full_email VARCHAR(250),
+    email_domain VARCHAR(150),
+    email_body VARCHAR(150),
+    PRIMARY KEY (id)
+);
