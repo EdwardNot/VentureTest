@@ -1,0 +1,33 @@
+.Body {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.Body .InputGroup {
+
+    width: 75vw;
+    max-width: 450px;
+
+    min-height: 100px;
+
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 10px;
+}
+
+.Body .InputGroup input {
+    outline: none;
+    border: 0;
+    border-bottom: 1px grey solid;
+
+    font-size: 25px;
+    text-align: center;
+}
+
+.emailHolder_absolute > * {
+    margin-bottom: 15px;
+}

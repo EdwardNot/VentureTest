@@ -1,0 +1,13 @@
+.Header {
+    background-color: green;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Header .Logo {
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+}
