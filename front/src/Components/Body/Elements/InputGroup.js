@@ -11,11 +11,25 @@ export const ValidateEmail = (email) => {
         )
 }
 
+// getting domain name from email
+export const getDomainPart = (input) => {
+    const regex = new RegExp("@.*$");
+    return regex.exec(input)[0];
+}
+
 const InputGroup = () => {
 
     const [emails, setEmails] = useState([]);
     const [validations, setValidations] = useState([]);
 
+    // sorting emails by body and domain name
+    function sortEmails(arrayOfEmails){
+        let sorted = arrayOfEmails.sort();
+        sorted.sort((left, right) => getDomainPart(left).localeCompare(getDomainPart(right)));
+        return sorted;
+    }
+
+    // Clear validation error flag on specific index
     function clearValidation(index) {
         let temp_array = validations;
         if (index < temp_array.length){
@@ -30,7 +44,13 @@ const InputGroup = () => {
         setValidations(emails.map(email => email=="" || ValidateEmail(email)));
         // if some of emails are not validated - stop sending process
         if (validations.includes(true)) return;
-        emails.map( email =>{
+        const sorted_emails = sortEmails(emails);
+
+        // TEST STOP TO NOT SEND REAL EMAILS
+        // return;
+        // 
+
+        sorted_emails.map( email =>{
             // this will prevent sending on "empty" email
             if (!ValidateEmail(email)){
                 // setErrorState(true);
